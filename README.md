@@ -8,7 +8,7 @@ Works on **iPhone (Safari)**, **Android (Chrome)**, and desktop browsers.
 
 1. Open the site on your phone.
 2. Tap **Choose a video** and pick one from your gallery.
-3. Pick your upload limit (10 MB for free Discord accounts) and optionally trim it.
+3. Pick your upload limit (20 MB for free Discord accounts, the default) and optionally trim it.
 4. Tap **Shrink video**, then **Share to Discord…**, or **Save video**.
 
 ### Make it feel like an app

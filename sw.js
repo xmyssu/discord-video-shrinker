@@ -1,6 +1,6 @@
 // Caches the app so it works offline, and receives videos shared from the
 // Android share sheet (Web Share Target). Bump VERSION when files change.
-const VERSION = 'v1';
+const VERSION = 'v1.0.1';
 const APP_CACHE = `app-${VERSION}`;
 const APP_FILES = [
   './',

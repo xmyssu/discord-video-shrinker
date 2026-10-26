@@ -35,7 +35,7 @@ function storageSet(key, value) {
 
 function limitBytes() {
   const v = $('limit').value === 'custom' ? Number($('limit-custom').value) : Number($('limit').value);
-  return v > 0 ? v * MB : 10 * MB;
+  return v > 0 ? v * MB : 20 * MB;
 }
 
 function restoreSettings() {
