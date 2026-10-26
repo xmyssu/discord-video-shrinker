@@ -1,0 +1,9 @@
+{
+  "name": "discord-video-shrinker",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "npx --yes serve .",
+    "test": "node --test test/*.test.js"
+  }
+}

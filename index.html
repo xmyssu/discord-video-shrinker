@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Discord Video Shrinker</title>
+  <meta name="description" content="Shrink phone videos to fit Discord's upload limit. Runs entirely on your device: nothing is uploaded.">
+  <meta name="theme-color" content="#1e1f22">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Shrinker">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Video Shrinker</h1>
+      <p class="sub">Fit any video under Discord's upload limit. It all happens on your phone, so nothing gets uploaded.</p>
+    </header>
+
+    <section id="pick-section">
+      <label class="drop" id="drop">
+        <input type="file" id="file" accept="video/*">
+        <span class="drop-title">Choose a video</span>
+        <span class="drop-hint">or drag one here</span>
+      </label>
+    </section>
+
+    <section id="setup-section" hidden>
+      <video id="preview" playsinline controls preload="metadata"></video>
+      <p class="meta" id="file-meta"></p>
+
+      <div class="field">
+        <label for="limit">Upload limit</label>
+        <select id="limit">
+          <option value="10">10 MB (Discord free)</option>
+          <option value="25">25 MB</option>
+          <option value="50">50 MB (Nitro Basic / boosted server)</option>
+          <option value="100">100 MB (boosted server lvl 3)</option>
+          <option value="500">500 MB (Nitro)</option>
+          <option value="custom">Custom…</option>
+        </select>
+        <input type="number" id="limit-custom" min="1" step="1" placeholder="MB" hidden>
+      </div>
+
+      <details class="trim">
+        <summary>Trim (optional)</summary>
+        <div class="trim-row">
+          <label>Start <input type="number" id="trim-start" min="0" step="0.1" value="0"> s</label>
+          <button type="button" class="small" data-set="start">Use current</button>
+        </div>
+        <div class="trim-row">
+          <label>End <input type="number" id="trim-end" min="0" step="0.1"> s</label>
+          <button type="button" class="small" data-set="end">Use current</button>
+        </div>
+      </details>
+
+      <p class="plan" id="plan"></p>
+
+      <div class="actions">
+        <button id="convert" class="primary">Shrink video</button>
+        <button id="reset" class="ghost">Pick another</button>
+      </div>
+    </section>
+
+    <section id="progress-section" hidden>
+      <p id="status">Preparing…</p>
+      <div class="bar"><div id="bar-fill"></div></div>
+      <p class="hint">Keep this screen open until it finishes.</p>
+      <button id="cancel" class="ghost">Cancel</button>
+    </section>
+
+    <section id="done-section" hidden>
+      <p class="result" id="result"></p>
+      <video id="output-preview" playsinline controls></video>
+      <div class="actions">
+        <button id="share" class="primary" hidden>Share to Discord…</button>
+        <a id="download" class="button" download>Save video</a>
+        <button id="again" class="ghost">Shrink another</button>
+      </div>
+    </section>
+
+    <p class="error" id="error" hidden></p>
+
+    <footer>
+      <a href="https://github.com/xmyssu/discord-video-shrinker">Source on GitHub</a> · Open source, no tracking.
+    </footer>
+  </main>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
